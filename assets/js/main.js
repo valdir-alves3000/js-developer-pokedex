@@ -38,8 +38,8 @@ function convertPokemonToLi(pokemon) {
   return li;
 }
 
-function loadPokemonItens(offset, limit) {
-  pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
+async function loadPokemonItens(offset, limit) {
+  await pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
     const newElements = pokemons.map(convertPokemonToLi);
     newElements.forEach((pokemon) => pokemonList.appendChild(pokemon));
   });
